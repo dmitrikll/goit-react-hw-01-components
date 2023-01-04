@@ -1,20 +1,6 @@
-import css from './Statistics.module.css';
 import PropTypes from 'prop-types';
-
-const createRandomColor = () => {
-    const randomColor =
-        'rgba(' +
-        Math.round(Math.random() * 255) +
-        ',' +
-        Math.round(Math.random() * 255) +
-        ',' +
-        Math.round(Math.random() * 255) +
-        ',' +
-        0.5 +
-        ')';
-
-    return randomColor;
-};
+import css from './Statistics.module.css';
+import { createRandomColor } from 'utils/createRandomColor';
 
 export const Statistics = ({ title, stats }) => (
     <section className={css.statistics}>
@@ -23,7 +9,7 @@ export const Statistics = ({ title, stats }) => (
         <ul className={css.statList}>
             {stats.map(({ id, label, percentage }) => (
                 <li key={id} className={css.item} style={{ backgroundColor: createRandomColor() }}>
-                    <span>{label}</span>
+                    <span className={css.label}>{label}</span>
                     <span className={css.percentage}>{percentage}%</span>
                 </li>
             ))}
@@ -38,5 +24,5 @@ Statistics.propTypes = {
         label: PropTypes.string.isRequired,
         percentage: PropTypes.number.isRequired,
     }))
-}
+};
 

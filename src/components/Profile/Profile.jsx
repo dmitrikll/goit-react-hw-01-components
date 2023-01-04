@@ -1,5 +1,5 @@
-import css from './Profile.module.css';
 import PropTypes from 'prop-types';
+import css from './Profile.module.css';
 
 export const Profile = ({ username, tag, location, avatar, stats }) => (
     <div className={css.profile}>
@@ -19,7 +19,7 @@ export const Profile = ({ username, tag, location, avatar, stats }) => (
                 <span className={css.label}>Views</span>
                 <span className={css.quantity}>{stats.views}</span>
             </li>
-            <li>
+            <li className={css.statsItem}>
                 <span className={css.label}>Likes</span>
                 <span className={css.quantity}>{stats.likes}</span>
             </li>
